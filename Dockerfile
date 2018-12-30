@@ -1,8 +1,9 @@
-FROM golang:1.9
+FROM golang:1.11
 
 WORKDIR /go/src/app
 
 RUN go get -u github.com/nmrshll/gphotos-uploader-cli
 RUN go install -v github.com/nmrshll/gphotos-uploader-cli
+RUN gphotos-uploader-cli init
 
-CMD ["app"]
+CMD ["gphotos-uploader-cli"]
